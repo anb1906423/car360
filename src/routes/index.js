@@ -6,9 +6,11 @@ const introRouter = require('./intro')
 function route(app) {
     
     app.use('/discount', discountRouter)
-
+    
     app.use('/intro', introRouter)
-        
+    
+    app.use('/account', siteRouter)
+    
     app.use('/', siteRouter)
 
 }

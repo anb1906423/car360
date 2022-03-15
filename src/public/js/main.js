@@ -8,6 +8,10 @@ $(document).ready(function () {
     }, 500);
 
     $('.discount-poster').click(function () {
-        window.location.href='https://shop.vinfastauto.com/vn_vi/vinfast-cars-deposit.html';
+        window.location.href = 'https://shop.vinfastauto.com/vn_vi/vinfast-cars-deposit.html';
+    });
+
+    $('#nav li:nth-child(4)').hover(function () {
+        $('#container').toggleClass('opacity');
     });
 });

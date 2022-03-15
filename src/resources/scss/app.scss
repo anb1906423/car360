@@ -36,6 +36,11 @@ body {
     border-radius: 4px;
 }
 
+.opacity {
+    opacity: .7;
+    transition: opacity .4s ease-out;
+}
+
 #header {
     top: 0;
     left: 0;
@@ -67,17 +72,16 @@ body {
 }
 
 #nav {
-    // position: absolute;
+    position: relative;
     display: inline-block;
 }
 
-#nav li {
+#nav > li {
     display: inline-block;
-    position: relative;
     line-height: $height-header;
 }
 
-#nav li a {
+#nav > li > a {
     padding: 30px 16px;
     color: $black-color;
     text-decoration: none;
@@ -85,7 +89,7 @@ body {
     letter-spacing: 1px;
 }
 
-#nav li:hover a,
+#nav li:hover > a,
 #footer .footer-item a:hover {
     color: $hover-color;
     transition: all 0.2s ease-in;
@@ -93,6 +97,47 @@ body {
 
 #nav li:hover {
     cursor: pointer;
+}
+
+#nav .sub-nav {
+    display: none;
+    position: absolute;
+    top: $height-header;
+    text-align: left;
+    background-color: $white-color;
+    animation: subnav .3s ease-out;
+
+}
+
+#nav .sub-nav li {
+    line-height: 40px;
+    list-style: none;
+    width: 200px;
+    display: block;
+    transition: all .2s ease-in;
+}
+
+#nav > li:hover .sub-nav {
+    display:flex;
+}
+
+#nav .sub-nav li a {
+    color: $black-color;
+    text-decoration: none;
+    padding: 0px 20px;
+}
+
+#nav .sub-nav ul {
+    width: 400px;
+    display: inline-block;
+}
+
+#nav .sub-nav li:hover a {
+    color: $hover-color;
+}
+
+#nav .sub-nav li:hover {
+    background-color: #E0F2F1;
 }
 
 #container {
@@ -459,15 +504,6 @@ span.detail a {
     z-index: 2001;
 }
 
-@keyframes spin {
-    0% {
-        transform: rotate(0deg); /* Firefox 16+, IE 10+, Opera */
-    }
-    100% {
-        transform: rotate(360deg); /* Firefox 16+, IE 10+, Opera */
-    }
-}
-
 #loader-wrapper .loader-section {
     position: fixed;
     top: 0;
@@ -510,4 +546,23 @@ span.detail a {
 
 .no-js #loader-wrapper {
     display: none;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg); /* Firefox 16+, IE 10+, Opera */
+    }
+    100% {
+        transform: rotate(360deg); /* Firefox 16+, IE 10+, Opera */
+    }
+}
+
+@keyframes subnav {
+    from {
+        transform: translate(0, 50%);
+        opacity: 0;
+    } to {
+        transfrom: translate(0, 0);
+        opacity: 1;
+    }
 }
