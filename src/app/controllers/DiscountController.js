@@ -7,4 +7,4 @@ class DiscountController {
 
 }
 
-module.exports = new DiscountController
+module.exports = new DiscountController()

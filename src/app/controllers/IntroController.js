@@ -7,4 +7,4 @@ class Introcontroller {
 
 }
 
-module.exports = new Introcontroller
+module.exports = new Introcontroller()
