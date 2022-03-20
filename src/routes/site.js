@@ -3,7 +3,9 @@ const express = require('express')
 const router = express.Router()
 const siteController = require('../app/controllers/SiteController')
 
-router.use('/account', siteController.account)
+router.use('/sign_up', siteController.sign_up)
+
+router.use('/sign_in', siteController.sign_in)
 
 router.use('/', siteController.index)
 

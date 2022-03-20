@@ -5,8 +5,12 @@ class SiteController {
         res.render('home')
     }
 
-    account(req, res) {
-        res.render('account')
+    sign_in(req, res) {
+        res.render('sign_in')
+    }
+
+    sign_up(req, res) {
+        res.render('sign_up')
     }
 
 }

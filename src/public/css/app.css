@@ -4,7 +4,7 @@
   box-sizing: border-box; }
 
 .none {
-  display: none; }
+  display: none !important; }
 
 html {
   font-family: Arial, Helvetica, sans-serif; }
@@ -27,8 +27,48 @@ body {
   border-radius: 4px; }
 
 .opacity {
-  opacity: .7;
-  transition: opacity .4s ease-out; }
+  opacity: 0.7;
+  transition: opacity 0.4s ease-out; }
+
+.fade-out {
+  opacity: 0; }
+
+.fade-in {
+  opacity: 1 !important; }
+
+.active {
+  color: #448AFF !important; }
+
+.border-active {
+  border: 1px solid #448AFF !important; }
+
+.red {
+  background-color: red; }
+
+.black {
+  background-color: black; }
+
+.yellow {
+  background-color: yellow; }
+
+.white {
+  background-color: white; }
+
+.grey {
+  background-color: grey; }
+
+.blue {
+  background-color: blue; }
+
+.grown {
+  background-color: #6D4C41; }
+
+.wheat {
+  background-color: wheat; }
+
+.car-name-focus {
+  color: #448AFF;
+  transform: scale(1.1); }
 
 #header {
   top: 0;
@@ -63,7 +103,42 @@ body {
 
 #nav > li {
   display: inline-block;
-  line-height: 80px; }
+  line-height: 80px;
+  position: relative; }
+
+#nav > li:before {
+  content: " ";
+  position: absolute;
+  width: 0px;
+  height: 2px;
+  background-color: #448AFF;
+  bottom: 1px;
+  left: 50%;
+  border-radius: 0 4px 4px 0;
+  display: none; }
+
+#nav > li:after {
+  content: " ";
+  position: absolute;
+  width: 50%;
+  height: 2px;
+  background-color: #448AFF;
+  bottom: 1px;
+  right: 50%;
+  border-radius: 4px 0 0 4px;
+  display: none; }
+
+#nav > li:hover:before {
+  right: 0;
+  width: 50%;
+  display: block;
+  animation: before 0.2s ease-out; }
+
+#nav > li:hover:after {
+  left: 0;
+  width: 50%;
+  display: block;
+  animation: after 0.2s ease-out; }
 
 #nav > li > a {
   padding: 30px 16px;
@@ -86,14 +161,15 @@ body {
   top: 80px;
   text-align: left;
   background-color: white;
-  animation: subnav .3s ease-out; }
+  animation: subnav 0.3s ease-out;
+  z-index: 10; }
 
 #nav .sub-nav li {
   line-height: 40px;
   list-style: none;
   width: 200px;
   display: block;
-  transition: all .2s ease-in; }
+  transition: all 0.2s ease-in; }
 
 #nav > li:hover .sub-nav {
   display: flex; }
@@ -111,7 +187,7 @@ body {
   color: #448AFF; }
 
 #nav .sub-nav li:hover {
-  background-color: #E0F2F1; }
+  background-color: #e0f2f1; }
 
 #container {
   margin-top: 80px; }
@@ -222,12 +298,100 @@ body {
   margin: 0px auto;
   font-size: 18px;
   line-height: 24px;
-  color: #BCAAA4; }
+  color: #bcaaa4; }
 
 .img-cn {
   width: 88%;
   height: auto;
   margin: 24px 0 48px; }
+
+#wrapper-car .car-list {
+  margin: 0;
+  padding: 0 60px; }
+
+#wrapper-car .car-item {
+  text-align: center; }
+
+#wrapper-car .car-item:hover .car-name {
+  color: #448AFF;
+  transform: scale(1.1); }
+
+.car-item .car-img {
+  max-width: 260px;
+  display: block;
+  margin: 0px auto;
+  min-height: 174px;
+  padding: 2px; }
+
+.car-item .car-name {
+  text-transform: uppercase;
+  font-size: 20px;
+  letter-spacing: 1px;
+  font-weight: 700;
+  transition: all 0.2s linear;
+  cursor: context-menu; }
+
+.car-item .car-arrow {
+  padding: 8px;
+  margin: 4px;
+  font-size: 18px;
+  color: #448AFF;
+  opacity: 0;
+  transition: all 0.2s linear;
+  animation: upDow 0.6s linear infinite; }
+
+.car-under {
+  text-align: center; }
+
+.car-under .wrapper-img img {
+  max-width: 100%;
+  display: block;
+  margin: 0px auto;
+  height: 460px;
+  padding: 100px 0; }
+
+.car-under h2 {
+  text-transform: uppercase;
+  padding: 12px 0 8px 0;
+  font-size: 26px;
+  font-weight: 500; }
+
+.car-detail b {
+  color: #448AFF;
+  font-size: 30px; }
+
+.car-detail li {
+  list-style: none;
+  display: inline-block;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  border: 2px solid #ccc;
+  margin: 0px 4px; }
+
+.car-detail h3 {
+  padding: 16px 0;
+  font-weight: 600; }
+
+.car-detail .version-item {
+  padding: 8px 20px;
+  margin: 8px 16px;
+  border: 1px solid #ccc;
+  background-color: white;
+  color: black;
+  font-weight: 400;
+  cursor: pointer;
+  font-weight: 500; }
+
+.car-detail > button {
+  padding: 12px 24px;
+  margin: 12px 0;
+  min-width: 280px;
+  color: white;
+  background-color: #448AFF;
+  border: none;
+  font-size: 15px;
+  font-weight: 600; }
 
 #intro .intro-banner {
   position: relative; }
@@ -239,7 +403,7 @@ body {
 #intro .cover-banner {
   position: absolute;
   padding: 8px;
-  border: 4px solid #FFF200;
+  border: 4px solid #fff200;
   border-radius: 4px;
   background-color: rgba(76, 150, 76, 0.4);
   transform: translateY(-50%);
@@ -312,7 +476,8 @@ body {
   max-width: 100%;
   display: block;
   height: auto;
-  transition: .4s all ease-in-out; }
+  transition: 0.4s all ease-in-out;
+  border-radius: 4px 4px 0 0; }
 
 span.detail {
   position: absolute;
@@ -330,7 +495,7 @@ span.detail a {
   color: #ccc; }
 
 .discount-item:hover .discount-img {
-  opacity: .8; }
+  opacity: 0.8; }
 
 .discount-item:hover span.detail {
   top: 30%;
@@ -348,7 +513,105 @@ span.detail a {
 
 .date-start {
   padding: 12px 4px;
-  color: #9E9E9E; }
+  color: #9e9e9e; }
+
+#sign-up,
+#sign-in {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: calc(100vh - 58px); }
+
+div.modal-frm {
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 360px;
+  padding: 30px 20px; }
+
+.modal-frm h2 {
+  margin: 12px auto 20px;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 550;
+  letter-spacing: 1px;
+  font-size: 19px; }
+
+.modal-frm .forgot-pwd a {
+  float: right;
+  text-decoration: none;
+  display: inline-block;
+  color: #707070;
+  margin: 12px 0 28px;
+  font-size: 13px; }
+
+label.errol {
+  color: red;
+  font-size: 12px;
+  display: block;
+  padding: 2px 4px; }
+
+.modal-frm .rules {
+  display: inline-block;
+  color: #707070;
+  margin: 12px 0 28px;
+  font-size: 13px;
+  line-height: 1.5;
+  text-align: justify; }
+
+#sign-in .modal-frm .forgot-pwd a:hover {
+  color: #448AFF; }
+
+.input {
+  padding: 8px 40px 8px 12px;
+  width: 100%;
+  border: 1px solid #ccc;
+  margin: 4px 0;
+  height: 40px; }
+
+.input:focus {
+  border: 1px solid #448AFF; }
+
+.wrapper-pwd {
+  position: relative; }
+
+.eyes {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #707070;
+  width: 18px; }
+
+.submit-btn {
+  width: 100%;
+  padding: 8px;
+  height: 40px;
+  font-weight: bold;
+  font-size: 16px; }
+
+.btn {
+  color: white;
+  background-color: #bcaaa4;
+  border: none; }
+
+.sub-btn {
+  background-color: white;
+  border: 1px solid #448AFF;
+  color: #448AFF;
+  transition: all 0.2s ease-in-out; }
+
+.sub-btn:hover {
+  color: white;
+  background-color: #448AFF; }
+
+p.no-account {
+  text-align: center;
+  color: #707070;
+  font-size: 13px;
+  margin: 20px 0; }
 
 #footer {
   width: 100vw;
@@ -380,7 +643,7 @@ span.detail a {
 #footer .footer-item a {
   text-decoration: none;
   color: black;
-  transition: all .6s ease-in; }
+  transition: all 0.6s ease-in; }
 
 #footer .footer-item:nth-child(2) a:hover {
   text-decoration: underline; }
@@ -395,7 +658,7 @@ span.detail a {
 /* Loading */
 #loader-wrapper {
   position: fixed;
-  top: 0;
+  top: 80px;
   left: 0;
   width: 100%;
   height: 100%;
@@ -404,10 +667,10 @@ span.detail a {
 #loader {
   display: block;
   position: relative;
-  left: 50%;
-  top: 50%;
-  width: 120px;
-  height: 120px;
+  left: calc(100vw / 2);
+  top: 34%;
+  width: 100px;
+  height: 100px;
   margin: -75px 0 0 -75px;
   border-radius: 50%;
   border: 5px solid #448AFF;
@@ -424,7 +687,7 @@ span.detail a {
   background: white;
   z-index: 2000;
   transform: translateX(0);
-  opacity: 0.5; }
+  opacity: 0; }
 
 #loader-wrapper .loader-section.section-left {
   left: 0; }
@@ -453,6 +716,22 @@ span.detail a {
 .no-js #loader-wrapper {
   display: none; }
 
+@keyframes before {
+  from {
+    right: 50%;
+    width: 0; }
+  to {
+    right: 0;
+    width: 50%; } }
+
+@keyframes after {
+  from {
+    left: 50%;
+    width: 0; }
+  to {
+    left: 0;
+    width: 50%; } }
+
 @keyframes spin {
   0% {
     transform: rotate(0deg);
@@ -468,3 +747,9 @@ span.detail a {
   to {
     transfrom: translate(0, 0);
     opacity: 1; } }
+
+@keyframes upDow {
+  from {
+    transform: translate(0, 0); }
+  to {
+    transform: translateY(4px); } }
